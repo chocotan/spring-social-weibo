@@ -15,14 +15,14 @@
  */
 package org.springframework.social.weibo.connect;
 
-import java.util.Map;
-
 import org.springframework.social.ApiException;
 import org.springframework.social.connect.ApiAdapter;
 import org.springframework.social.connect.ConnectionValues;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.social.connect.UserProfileBuilder;
 import org.springframework.social.weibo.api.Weibo;
+
+import java.util.Map;
 
 /**
  * Weibo ApiAdapter implementation.
@@ -46,8 +46,8 @@ public class WeiboAdapter implements ApiAdapter<Weibo> {
 	@Override
 	public void setConnectionValues(Weibo weibo, ConnectionValues values) {
 		Map<String, Object> userId = weibo.accountOperations().getUid();
-		Map<String, Object> profile = weibo.userOperations().getUserProfileById((Long)userId.get("uid"));
-		values.setProviderUserId((String)profile.get("id"));
+		Map<String, Object> profile = weibo.userOperations().getUserProfileById(Long.valueOf(String.valueOf(userId.get("uid"))));
+		values.setProviderUserId(String.valueOf(profile.get("id")));
 		values.setDisplayName((String)profile.get("screen_name"));
 		values.setProfileUrl("http://weibo.com/" + (String)profile.get("profile_url"));
 		values.setImageUrl((String)profile.get("profile_image_url"));

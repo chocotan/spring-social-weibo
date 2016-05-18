@@ -1,0 +1,2 @@
+http\://www.springframework.org/schema/social/spring-social-weibo.xsd=org/springframework/social/weibo/config/xml/spring-social-weibo-1.1.xsd
+http\://www.springframework.org/schema/social/spring-social-weibo-1.1.xsd=org/springframework/social/weibo/config/xml/spring-social-weibo-1.1.xsd
